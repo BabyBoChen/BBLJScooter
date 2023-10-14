@@ -1,10 +1,8 @@
 body {
     position: absolute;
-    max-height: 100%;
-    top:0px;
-    left:0px;
-    right:0px;
-    bottom:0px;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
     margin: 0px;
     overflow: hidden;
 }
@@ -183,12 +181,23 @@ body {
     border-radius: 100%;
     background-color: #d500ae;
     color: #2700d5;
-    text-align: center;
+    cursor: pointer;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
-.floating-button h1 {
-    color: #2700d5;
+.h-center {
+    text-align: center;
+}
+.v-center{
+    position: relative;
+}
+.v-center>* {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    max-height: 100%;
     padding: 0px;
-    padding-top: 1rem;
     margin: 0px;
+    overflow: auto;
 }

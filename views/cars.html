@@ -44,7 +44,11 @@
                 {% endfor %}
             </div>
             <div class="floating-button">
-                <h1><i class="fa-solid fa-plus"></i></h1>
+                <div class="v-center" style="height:100%;">
+                    <div class="h-center">
+                        <i class="fa-solid fa-plus fa-xl"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <script src='{{ url_for("static", filename="js/script.js") }}'></script>
@@ -66,27 +70,37 @@
              * */
             function showCarMenu(plate, _id) {
                 let dialog_html = `
-                <div class="message-box" style="position:absolute; z-index: 100; top:0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(0,0,0,0.75); overflow: auto;" onclick="{ this.remove(); }">
-                    <div style="width: 80%; background-color: white; margin: auto; margin-top: 30vh; box-shadow: 5px 10px 10px rgba(0,0,0,0.8)">
-                        <h1 style="text-align: center">
+                <dialog style="padding:0px;border-radius:10px;" onclick="{ this.close();this.remove(); }">
+                    <div style="width: 20rem; background-color: white;">
+                        <h1 style="text-align: center; white-space: nowrap; overflow:hidden;">
                             ${plate}
                         </h1>
-                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;">
+                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;" 
+                            onMouseOver="{ this.style.backgroundColor='rgba(0,0,0,0.2)'; }"
+                            onMouseOut="{ this.style.backgroundColor='rgba(0,0,0,0)'; }">
                             <a href="/car/${_id}" style="color: #0043d5;">修改車車資料</a>
                         </h2>
-                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;">
+                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;" 
+                            onMouseOver="{ this.style.backgroundColor='rgba(0,0,0,0.2)'; }"
+                            onMouseOut="{ this.style.backgroundColor='rgba(0,0,0,0)'; }">
                             <a href="/move_to_top/${_id}" style="color: #0043d5;">置頂</a>
                         </h2>
-                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;">
+                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;" 
+                            onMouseOver="{ this.style.backgroundColor='rgba(0,0,0,0.2)'; }"
+                            onMouseOut="{ this.style.backgroundColor='rgba(0,0,0,0)'; }">
                             <a href="" onclick="return confirm('是否確定要刪除${plate}')" style="color: #0043d5;">刪除車車</a>
                         </h2>
-                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;">
+                        <h2 style="text-align: center; color: #0043d5; text-decoration: underline;" 
+                            onMouseOver="{ this.style.backgroundColor='rgba(0,0,0,0.2)'; }"
+                            onMouseOut="{ this.style.backgroundColor='rgba(0,0,0,0)'; }">
                             取消
                         </h2>
                     </div>
-                </div>`;
+                </dialog>`;
+                /** @type {HTMLDialogElement} */
                 let dialog = htmlToElement(dialog_html);
                 document.querySelector('body').append(dialog);
+                dialog.showModal();
             }
         </script>
     </body>

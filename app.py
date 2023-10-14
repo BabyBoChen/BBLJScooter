@@ -1,6 +1,6 @@
 import service_injection as _
 
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect
 from view_models.cars_view_model import CarsViewModel
 from view_models.car_view_model import CarViewModel
 from view_models.maintenance_view_model import MaintenanceViewModel
@@ -176,4 +176,4 @@ def error():
     return render_template("error.html", err_msg=err_msg)
 
 # if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=8000)
+#     app.run(host="0.0.0.0", port=8080, debug=True)

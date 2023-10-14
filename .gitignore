@@ -3,3 +3,4 @@
 **/__pycache__
 secret.py
 db_secret.py
+deploy/
