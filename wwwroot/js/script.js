@@ -8,3 +8,9 @@ function htmlToElement(html) {
     template.innerHTML = html;
     return template.content.firstChild;
 }
+/**
+ * @param {String} dest target route name
+ */
+function navigateTo(dest) {
+    location.href = dest;
+}
