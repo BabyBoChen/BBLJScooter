@@ -7,7 +7,7 @@
 # print(a)
 
 from app import app
-# app.run(host="0.0.0.0", port=8080, debug=True)
+app.run(host="0.0.0.0", port=8080, debug=True)
 
-from waitress import serve
-serve(app, host='0.0.0.0', port=8080)
+# from waitress import serve
+# serve(app, host='0.0.0.0', port=8080)
