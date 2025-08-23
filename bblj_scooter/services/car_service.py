@@ -52,7 +52,7 @@ class CarService(ICarService):
                     for m in doc_car["maintenance"]:
                         maint = self.map_maintenance(m)
                         car.maintenance.append(maint)
-                    car.maintenance.sort(reverse=True, key=lambda m : m.mileage)
+                    car.maintenance.sort(reverse=True, key=lambda m : m.maint_date)
             except Exception as ex:
                 car.maintenance = []
         return car
