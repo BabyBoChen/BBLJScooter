@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from secret import *
-from app import app
+from app import app, session_store
+import uuid
 
 @app.before_request
 def authorize():
@@ -32,5 +33,12 @@ def user_login():
         session["is_login"] = True
         return redirect("/")
     else:
-        err_msg = "登入失敗"
-        return redirect("/error")
+        err_id = str(uuid.uuid4())
+        session_store[err_id] = "登入失敗"
+        return redirect(f"/error/{err_id}")
+
+@app.route("/logout")
+def logout():
+    session["is_login"] = False
+    session.pop("is_login", False)
+    return redirect(f"/")
